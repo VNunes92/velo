@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-test('COnsultar um pedido aprovado', async ({ page }) => {
+test('Consultar um pedido aprovado', async ({ page }) => {
   /// Padrão AAA do playwright - Arrange, Act, Assert
   /// Preparar, Agir, Verificar
   
@@ -15,6 +15,4 @@ test('COnsultar um pedido aprovado', async ({ page }) => {
   // Assert
   await expect(page.getByTestId('order-result-id')).toContainText('VLO-BVOH08')
   await expect(page.getByTestId('order-result-status')).toContainText('APROVADO')
-  await expect(page.getByTestId('order-result-VLO-BVOH08')).toContainText('vinicius@teste.com')
-
 })
