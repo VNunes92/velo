@@ -10,7 +10,12 @@ test('Consultar um pedido aprovado', async ({ page }) => {
   await page.getByRole('link', { name: 'Consultar Pedido' }).click()
   await expect(page.getByRole('heading')).toContainText('Consultar Pedido')
   // Act
-  await page.getByTestId('search-order-id').fill('VLO-BVOH08')
+
+  /// Maneiras diferentes de encontrar o elemento
+  //await page.locator('//label[text()="Número do Pedido"]/..//input').fill('VLO-BVOH08')
+  //await page.getByLabel('Número do Pedido').fill('VLO-BVOH08')
+  //await page.getByPlaceholder('Ex: VLO-ABCD10').fill('VLO-BVOH08')
+  await page.getByRole('textbox', { name: 'Número do Pedido' }).fill('VLO-BVOH08')
   await page.getByTestId('search-order-button').click()
   // Assert
   await expect(page.getByTestId('order-result-id')).toContainText('VLO-BVOH08')
