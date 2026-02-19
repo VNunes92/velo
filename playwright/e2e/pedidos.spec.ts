@@ -17,8 +17,8 @@ test('Consultar um pedido aprovado', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Número do Pedido' }).fill('VLO-BVOH08')
   await page.getByTestId('search-order-button').click()
   // Assert
-  await expect(page.getByTestId('order-result-id')).toBeVisible({timeout: 15000})
+  await expect(page.getByTestId('order-result-id')).toBeVisible({timeout: 10000})
   await expect(page.getByTestId('order-result-id')).toContainText('VLO-BVOH08')
-  await expect(page.getByTestId('order-result-status')).toBeVisible({timeout: 15000})
+  await expect(page.getByTestId('order-result-status')).toBeVisible({timeout: 10000})
   await expect(page.getByTestId('order-result-status')).toContainText('APROVADO')
 })
